@@ -1,0 +1,3 @@
+[PASS] Cannot instantiate abstract Person -> compiler error: error: cannot declare variable ‘p’ to be of abstract type ‘Person’
+[PASS] Cannot read private Client::phone -> compiler error: error: ‘std::string Client::phone’ is private within this context
+[PASS] Cannot write private Freelancer::rate -> compiler error: error: ‘double Freelancer::rate’ is private within this context

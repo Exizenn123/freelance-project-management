@@ -1,0 +1,17 @@
+digraph G { rankdir=BT; node [shape=record, fontname="Helvetica", fontsize=10]; edge [fontname="Helvetica", fontsize=9];
+Person [label="{«abstract»\nPerson|# id : int\l# name : string\l|+ Person()\l+ Person(id, name)\l+ ~Person() «virtual»\l+ getId() : int\l+ getName() : string\l+ setName(n) : void\l+ display() : void «pure virtual»\l+ toRecord() : string «pure virtual»\l+ role() : string «pure virtual»\l}"];
+Client [label="{Client|- phone : string\l|+ Client()\l+ Client(id, name, phone)\l+ ~Client()\l+ getPhone() : string\l+ setPhone(p) : void\l+ display() : void\l+ toRecord() : string\l+ role() : string\l}"];
+Freelancer [label="{Freelancer|- skill : string\l- rate : double\l|+ Freelancer()\l+ Freelancer(id, name, skill, rate)\l+ ~Freelancer()\l+ setSkill(s) : void\l+ setRate(r) : void\l+ calculateFee(hours) : double\l+ display() : void\l+ toRecord() : string\l+ role() : string\l}"];
+Project [label="{Project|- projectId : int\l- clientId : int\l- freelancerId : int\l- title : string\l- budget : double\l- status : Status\l|+ Project()\l+ Project(id, clientId, title, budget)\l+ ~Project()\l+ setTitle(t) : void\l+ setBudget(b) : void\l+ assign(freelancerId) : void\l+ updateStatus(next) : void\l+ display() : void\l+ toRecord() : string\l}"];
+Payment [label="{Payment|- paymentId : int\l- projectId : int\l- amount : double\l- date : string\l|+ Payment()\l+ Payment(id, projectId, amount, date)\l+ ~Payment()\l+ makePayment(id, projectId, amount, date) : void\l+ display() : void\l+ toRecord() : string\l}"];
+FileManager [label="{FileManager|- dir : string\l|+ FileManager(dir)\l+ ~FileManager()\l+ save(...) : void\l+ load(...) : int\l}"];
+FS [label="{FreelanceSystem|- clients : Client*\l- freelancers : Freelancer*\l- projects : Project*\l- payments : Payment*\l- counts and capacities : int\l- fm : FileManager\l|+ FreelanceSystem()\l+ ~FreelanceSystem()\l+ createProject() : void\l+ assignFreelancer() : void\l+ makePayment() : void\l+ closeProject() : void\l+ cancelProject() : void\l+ report() : void\l+ saveData() : void\l+ loadData() : void\l+ run() : void\l- findClient(id) : int\l- paidFor(projectId) : double\l}"];
+Utils [label="{«namespace»\nUtils|+ readLine / readInt / readDouble\l+ isValidName / isValidPhone\l+ isValidText / isValidDate\l+ toLower(s) : string\l+ grow\<T\>(arr, count, cap)\l}", style=dashed];
+Client -> Person [arrowhead=empty]; Freelancer -> Person [arrowhead=empty];
+FS -> Client [dir=back, arrowtail=diamond, label="0..*"]; FS -> Freelancer [dir=back, arrowtail=diamond, label="0..*"];
+FS -> Project [dir=back, arrowtail=diamond, label="0..*"]; FS -> Payment [dir=back, arrowtail=diamond, label="0..*"];
+FS -> FileManager [arrowhead=vee, label="uses"]; FS -> Utils [style=dashed, arrowhead=vee, label="uses"];
+Project -> Client [style=dashed, arrowhead=vee, label="clientId"];
+Project -> Freelancer [style=dashed, arrowhead=vee, label="freelancerId"];
+Payment -> Project [style=dashed, arrowhead=vee, label="projectId"];
+}

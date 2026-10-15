@@ -1,0 +1,12 @@
+digraph U { rankdir=LR; fontname="Helvetica"; node [fontname="Helvetica", fontsize=10];
+Admin [shape=box, label="«actor»\nAdministrator", style=filled, fillcolor="#e8f0fe"];
+Cli [shape=box, label="«actor»\nClient\n(via Administrator desk)", style=filled, fillcolor="#e8f0fe"];
+Fre [shape=box, label="«actor»\nFreelancer\n(via Administrator desk)", style=filled, fillcolor="#e8f0fe"];
+subgraph cluster_s { label="Freelance Project Management System"; style=rounded;
+ node [shape=ellipse, style=filled, fillcolor="#fff7e0"];
+ U1 [label="Add / Update / Delete\nClients and Freelancers"]; U2 [label="Create Project"]; U3 [label="Assign Freelancer"];
+ U4 [label="Record Payment"]; U5 [label="Close Project"]; U6 [label="Cancel Project"];
+ U7 [label="Search / Display Records"]; U8 [label="View Summary Report"]; U9 [label="Save / Load Data"]; U10 [label="Estimate Freelancer Fee"]; }
+Admin -> U1; Admin -> U2; Admin -> U3; Admin -> U4; Admin -> U5; Admin -> U6; Admin -> U7; Admin -> U8; Admin -> U9; Admin -> U10;
+Cli -> U2; Cli -> U4; Cli -> U5; Cli -> U8; Fre -> U3; Fre -> U10; Fre -> U7;
+}

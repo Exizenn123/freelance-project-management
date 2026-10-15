@@ -1,0 +1,35 @@
+$ ./oop_checks   (built with -fsanitize=address,undefined)
+== OOP verification (IU2541230786) ==
+[PASS] Abstraction: Person is abstract (cannot be instantiated)
+[PASS] Inheritance: Client and Freelancer derive from Person
+[PASS] Destructor: Person has a virtual destructor
+[PASS] Default constructors give empty objects
+[PASS] Parameterized constructors store values
+[PASS] Encapsulation: bad phone rejected (invalid_argument)
+[PASS] Encapsulation: object unchanged after rejected update
+[PASS] Encapsulation: constructor rejects invalid name
+[PASS] Encapsulation: rate outside 1..100000 rejected
+[PASS] Encapsulation: '|' rejected in text (protects file format)
+[PASS] Polymorphism: role() resolved at run time
+[PASS] Polymorphism: dynamic type via typeid
+[PASS] Polymorphism: toRecord() differs per subclass
+[PASS] Polymorphism: display() prints the right fields per class
+[PASS] Delete through Person* completed
+[PASS] Method: calculateFee = rate x hours
+[PASS] Exception: calculateFee rejects 0 hours
+[PASS] Life cycle: new project is OPEN with no freelancer
+[PASS] Exception: closing an Open project throws logic_error
+[PASS] Life cycle: OPEN -> ASSIGNED via assign()
+[PASS] Exception: assigning twice throws logic_error
+[PASS] Exception: editing budget after assignment throws logic_error
+[PASS] Life cycle: ASSIGNED -> CLOSED
+[PASS] Exception: a Closed project cannot be cancelled
+[PASS] Exception: Payment rejects bad date / amount
+[PASS] Utils: leap-year date 29-02-2028 valid, 29-02-2027 invalid
+[PASS] Dynamic memory: capacity doubled 2 -> 4
+[PASS] Dynamic memory: elements preserved after growth
+[PASS] File handling: records survive save -> load
+[PASS] File handling: corrupt line skipped and counted
+
+Summary: 30 passed, 0 failed
+(sanitizers: no errors, no leaks)

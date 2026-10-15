@@ -1,0 +1,10 @@
+FINAL SUBMISSION CHECKLIST - FREELANCE PROJECT MANAGEMENT (IU2541230786 - CPP73)
+
+[x] Source code in src/ (Person, Client, Freelancer, Project, Payment, FreelanceSystem, FileManager, Utils, main)
+[x] Project Report:        Docs/IU2541230786_CPP73_Project_Report.docx
+[x] Submission Template:   Docs/IU2541230786_CPP73_Submission_Template.docx
+[x] UML diagrams:          UML/ (use case, class, 2 sequence)
+[x] Test cases + proof:    Tests/results.json and Tests/Screenshots/ (25 tests)
+[x] README.md and BUILD_WINDOWS.bat
+[ ] Windows .exe: build it with BUILD_WINDOWS.bat (MinGW g++) or the GitHub Action, then run it and, if your teacher requires, take your own screenshots.
+[ ] GitHub link: add your repository link to the report if required (upload src/, README.md, BUILD_WINDOWS.bat).
